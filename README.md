@@ -4,10 +4,15 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 
 ## Summary
 
+#### [Add a linting rules firstly when starting app from scratch](#lint-rules)
 #### [Use const wherever possible](#use-const)
 #### [Create separate class to define the colors](#separate-color-class)
 
 ----------
+
+### lint-rules
+Whenever you start a project from scratch firstly add [Lint](https://pub.dev/packages/lint) package which can help you to statically analyzed your flutter/dart code and can help you to improve your code quality which evantually reduces the bugs and errors.
+
 
 ### use-const
 
