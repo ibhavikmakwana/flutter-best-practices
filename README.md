@@ -89,8 +89,8 @@ You can do much more with the Theme, which is defining your custom TextField, Ca
 
 ### dont-use-functional-widgets
 
-We usually have a situation where we need to saperate out UI code from the widget, But we avoid creating a saperate widget and use function which returns Widget.
-This practice have some benefits, like you don't need to pass all parameters in your new widget, You have less code and less files. But this approch may cause issue when you want to inspect your widget. Let's see this in depth.
+We usually have a situation where we need to separate out UI code from the widget, But we avoid creating a separate widget and use function which returns Widget.
+This practice have some benefits, like you don't need to pass all parameters in your new widget, You have less code and less files. But this approach may cause issue when you want to inspect your widget. Let's see this in depth.
 
 When you use functional widget code looks like this.
 ```dart
@@ -138,5 +138,5 @@ ClassWidget
     ClassWidget
       Container
 ```
-As we can see here, if we use Widgets, framework understands it in better way and UI becames easy to inspect.
-For mode info follow [this](https://stackoverflow.com/a/53234826/11445644) answer from stackoverflow
+As we can see here, if we use Widgets, framework understands it in better way and UI becomes easy to inspect.
+For more info follow [this](https://stackoverflow.com/a/53234826/11445644) answer from stackoverflow
