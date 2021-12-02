@@ -7,6 +7,7 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 #### [Add a linting rules firstly when starting app from scratch](#lint-rules)
 #### [Use const wherever possible](#use-const)
 #### [Create separate class to define the colors](#separate-color-class)
+#### [Define theme for your app](#define-theme)
 
 ----------
 
@@ -47,3 +48,40 @@ class AppColor {
   static const Color errorRed = Color(0xFFFF6E6E);
 }
 ```
+
+### define-theme
+
+Define Theme of the app as well as a first priority to avoid the headache of changing the theme in future updates, Setting up Theme is surely confusring but one time task.
+Ask your designer to share all the Theme related data like, Colors, font sizes and weightage.
+
+Example:
+```dart
+MaterialApp(
+  title: appName,
+  theme: ThemeData(
+    // Define the default brightness and colors.
+    brightness: Brightness.dark,
+    
+    // You can add the color from the seprate class here as well to maintain it well.
+    primaryColor: Colors.lightBlue[800],
+
+    // Define the default font family.
+    fontFamily: 'Georgia',
+
+    // Define the default `TextTheme`. Use this to specify the default
+    // text styling for headlines, titles, bodies of text, and more.
+    textTheme: const TextTheme(
+      headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+      headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+      bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+    ),
+  ),
+  home: const MyHomePage(
+    title: appName,
+  ),
+);
+```
+
+You can do much more with the Theme, which is defining your custom TextField, Card, Bottom Navigation Bar themes for once and use it straight away in the app. Checkout an example of using Theme over [here](https://github.com/ibhavikmakwana/supabase_playground/blob/master/lib/values/theme.dart)
+
+>In Addition, In a large app/project you might end up having a multipl Themes not just light and dark mode themes but Custom themes for some specific widgets/components as well so you can always create a separate class/file and maintain all the themes over there.
