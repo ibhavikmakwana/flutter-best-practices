@@ -8,6 +8,7 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 #### [Use const wherever possible](#use-const)
 #### [Create separate class to define the colors](#separate-color-class)
 #### [Define theme for your app](#define-theme)
+#### [Don't use functional widgets](#dont-use-functional-widgets)
 
 ----------
 
@@ -85,3 +86,57 @@ MaterialApp(
 You can do much more with the Theme, which is defining your custom TextField, Card, Bottom Navigation Bar themes for once and use it straight away in the app. Checkout an example of using Theme over [here](https://github.com/ibhavikmakwana/supabase_playground/blob/master/lib/values/theme.dart)
 
 >In Addition, In a large app/project you might end up having a multipl Themes not just light and dark mode themes but Custom themes for some specific widgets/components as well so you can always create a separate class/file and maintain all the themes over there.
+
+### dont-use-functional-widgets
+
+We usually have a situation where we need to saperate out UI code from the widget, But we avoid creating a saperate widget and use function which returns Widget.
+This practice have some benefits, like you don't need to pass all parameters in your new widget, You have less code and less files. But this approch may cause issue when you want to inspect your widget. Let's see this in depth.
+
+When you use functional widget code looks like this.
+```
+Widget functionWidget({ Widget child}) {
+  return Container(child: child);
+}
+```
+You can now use it as
+```
+functionWidget(
+  child: functionWidget(),
+);
+```
+In this case Widget tree will look something like this
+```
+Container
+  Container
+```
+
+Instead if we use Widget, Our widget looks like
+```
+class ClassWidget extends StatelessWidget {
+  final Widget child;
+
+  const ClassWidget({Key key, this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: child,
+    );
+  }
+}
+```
+You can use it as
+```
+new ClassWidget(
+  child: new ClassWidget(),
+);
+```
+And in this case Widget tree looks like this
+```
+ClassWidget
+  Container
+    ClassWidget
+      Container
+```
+As we can see here, if we use Widgets, framework understands it in better way and UI becames easy to inspect.
+For mode info follow [this](https://stackoverflow.com/a/53234826/11445644) answer from stackoverflow
