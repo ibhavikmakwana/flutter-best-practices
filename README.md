@@ -8,7 +8,7 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 #### [Use const wherever possible](#use-const)
 #### [Create separate class to define the colors](#separate-color-class)
 #### [Define theme for your app](#define-theme)
-#### [Don't use functional widgets](#dont-use-functional-widgets)
+#### [Don't use functional widgets](#avoid-functional-widgets)
 
 ----------
 
@@ -87,7 +87,7 @@ You can do much more with the Theme, which is defining your custom TextField, Ca
 
 >In Addition, In a large app/project you might end up having a multipl Themes not just light and dark mode themes but Custom themes for some specific widgets/components as well so you can always create a separate class/file and maintain all the themes over there.
 
-### dont-use-functional-widgets
+### avoid-functional-widgets
 
 We usually have a situation where we need to separate out UI code from the widget, But we avoid creating a separate widget and use function which returns Widget.
 This practice have some benefits, like you don't need to pass all parameters in your new widget, You have less code and less files. But this approach may cause issue when you want to inspect your widget. Let's see this in depth.
