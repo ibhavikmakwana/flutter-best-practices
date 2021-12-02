@@ -93,25 +93,25 @@ We usually have a situation where we need to saperate out UI code from the widge
 This practice have some benefits, like you don't need to pass all parameters in your new widget, You have less code and less files. But this approch may cause issue when you want to inspect your widget. Let's see this in depth.
 
 When you use functional widget code looks like this.
-```
+```dart
 Widget functionWidget({ Widget child}) {
   return Container(child: child);
 }
 ```
 You can now use it as
-```
+```dart
 functionWidget(
   child: functionWidget(),
 );
 ```
 In this case Widget tree will look something like this
-```
+```dart
 Container
   Container
 ```
 
 Instead if we use Widget, Our widget looks like
-```
+```dart
 class ClassWidget extends StatelessWidget {
   final Widget child;
 
@@ -126,13 +126,13 @@ class ClassWidget extends StatelessWidget {
 }
 ```
 You can use it as
-```
+```dart
 new ClassWidget(
   child: new ClassWidget(),
 );
 ```
 And in this case Widget tree looks like this
-```
+```dart
 ClassWidget
   Container
     ClassWidget
