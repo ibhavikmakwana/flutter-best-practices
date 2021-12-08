@@ -9,6 +9,7 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 #### [Create separate class to define the colors](#separate-color-class)
 #### [Define theme for your app](#define-theme)
 #### [Don't use functional widgets](#avoid-functional-widgets)
+#### [Avoid print()](#avoid-print)
 
 ----------
 
@@ -140,3 +141,8 @@ ClassWidget
 ```
 As we can see here, if we use Widgets, framework understands it in better way and UI becomes easy to inspect.
 For more info follow [this](https://stackoverflow.com/a/53234826/11445644) answer from stackoverflow
+
+### avoid-print
+Avoid using `print()` in your code to view outputs in the console, as if the output is too much at once, then Android sometimes discards some log lines. To avoid this, you can use `debugPrint()`.
+
+You can also use `log()` from `dart:developer` which does not have max length limits like print() or debugPrint(), which also helps in dart dev tools to show formatted logging.
