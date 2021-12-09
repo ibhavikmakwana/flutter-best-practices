@@ -9,7 +9,7 @@ Do's and Don'ts for Flutter development, heavily inspired from the [android-best
 #### [Create separate class to define the colors](#separate-color-class)
 #### [Define theme for your app](#define-theme)
 #### [Don't use functional widgets](#avoid-functional-widgets)
-#### [Avoid print()](#avoid-print)
+#### [Avoid print](#avoid-print)
 
 ----------
 
